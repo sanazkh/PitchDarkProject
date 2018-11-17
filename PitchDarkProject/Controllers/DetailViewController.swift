@@ -68,7 +68,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myScrollView.isScrollEnabled = true
-        myScrollView.contentSize = CGSize(width: myScrollView.contentSize.width, height: 2000)
+        myScrollView.contentSize = CGSize(width: myScrollView.contentSize.width, height: 1000)
 
         self.detailImageView.image = UIImage(named: "image_placeholder.png")!
         loadPostDetail()

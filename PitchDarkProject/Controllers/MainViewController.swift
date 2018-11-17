@@ -89,6 +89,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
         query?.includeKey("createdAt")
+        query?.whereKey("caption", notEqualTo: "profilePicture")
         query?.limit = 50
         
         // Fetch data asynchronously

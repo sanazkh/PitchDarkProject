@@ -10,7 +10,10 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
+    
+    @IBOutlet var profileImage: UIImageView!
     var posts : [Post] = []
+    var posts1 : [Post] = []
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -50,6 +53,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         layout.itemSize = CGSize(width: width, height: width * 3 / 3)
         usernameLabel.text = PFUser.current()?.username
         fetchPostedImagesByUser()
+        fetchProfilePic()
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,12 +69,45 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         query?.order(byDescending: "createdAt")
         query?.includeKey("createdAt")
         query?.whereKey("author", equalTo: PFUser.current())
+        query?.whereKey("caption", notEqualTo: "profilePicture")
         
         // Fetch data asynchronously
         query?.findObjectsInBackground(block: { (posts, error) in
             if let posts = posts {
                 self.posts = posts as! [Post]
                 self.profileCollectionView.reloadData()
+            }
+            else {
+                print(error.debugDescription)
+            }
+        })
+    }
+    
+    func fetchProfilePic(){
+        let query = Post.query()
+        query?.whereKey("author", equalTo: PFUser.current())
+        query?.whereKey("caption", equalTo: "profilePicture")
+        
+        // Fetch data asynchronously
+        query?.findObjectsInBackground(block: { (posts, error) in
+            if let posts = posts {
+                self.posts1 = posts as! [Post]
+                print(self.posts1.count)
+                if(self.posts1.count > 0){
+                    if let imageFile : PFFile = self.posts1[0].media {
+                        imageFile.getDataInBackground { (data, error) in
+                            if (error != nil) {
+                                self.profileImage.image = UIImage(named: "image_placeholder.png")!
+                                print(error?.localizedDescription)
+                            }
+                            else {
+                                self.profileImage.image = UIImage(data: data!)
+                            }
+                        }
+                    }
+                }else {
+                    self.profileImage.image = UIImage(named: "image_placeholder.png")!
+                }
             }
             else {
                 print(error.debugDescription)

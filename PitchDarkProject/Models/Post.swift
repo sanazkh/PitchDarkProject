@@ -46,6 +46,14 @@ class Post: PFObject, PFSubclassing {
         post.saveInBackground(block: completion)
     }
     
+    class func postProfileImage(image: UIImage?, author: PFUser, caption : String? , withCompletion completion: PFBooleanResultBlock?){
+        let post = Post()
+        post.media = getPFFileFromImage(image: image)! // PFFile column type
+        post.author = PFUser.current()!
+        post.caption = caption!
+        post.saveInBackground(block: completion)
+    }
+    
     /**
      Method to convert UIImage to PFFile
      
