@@ -89,8 +89,7 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-- [ ] Sharing pictures with friends through the app
-- [ ] Favoriting a place
+- [ ] User can add profile picture
 
 
 The following **additional** features are implemented:
@@ -153,8 +152,7 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-- [ ] User should be able to leave comment for a post
-- [ ] Favoriting a place
+- [ ] User can add profile picture
 
 
 The following **additional** features are implemented:
@@ -216,10 +214,7 @@ The following **required** functionality is completed:
 - [X] User should be able to get weather information of each picture's location
 
 The following **stretch** features are implemented:
-
-- [ ] User should be able to leave comment for a post
-- [ ] Favoriting a place
-- [ ] User should be able to get light pollution information of each picture's location
+- [ ] User can add profile picture
 
 The following **additional** features are implemented:
 
@@ -284,8 +279,6 @@ The following **required** functionality is completed:
 The following **stretch** features are implemented:
 
 - [X] User can add profile picture
-- [ ] User should be able to leave comment for a post
-- [ ] Favoriting a place
 
 The following **additional** features are implemented:
 
