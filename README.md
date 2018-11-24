@@ -302,7 +302,8 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/i5vHmab.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-<img src='https://www.youtube.com/watch?v=e5btzNkMuc8' title='Demo Video' width='' alt='Demo Video' />
+[![Demo Video](https://www.youtube.com/watch?v=e5btzNkMuc8)](https://www.youtube.com/watch?v=e5btzNkMuc8)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
